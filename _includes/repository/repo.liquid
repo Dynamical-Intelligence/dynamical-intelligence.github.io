@@ -1,0 +1,77 @@
+{% assign repo_url = include.repository | split: '/' %}
+{% if site.data.repositories.github_users contains repo_url.first %}
+  {% assign show_owner = false %}
+{% else %}
+  {% assign show_owner = true %}
+{% endif %}
+
+{% assign lang = site.lang | split: '-' | first %}
+
+{% case lang %}
+  {% when 'pt' %}
+    {% assign lang = site.lang %}
+
+  {% when 'zh' %}
+    {% assign lang_last = site.lang | split: '-' | last %}
+    {% case lang_last %}
+      {% when 'cn', 'sg', 'my', 'hans' %}
+        {% assign lang = 'cn' %}
+      {% when 'tw', 'hk', 'mo', 'hant' %}
+        {% assign lang = 'zh-tw' %}
+    {% endcase %}
+{% endcase %}
+
+{% if site.data.repositories.repo_description_lines_max %}
+  {% assign max_lines = site.data.repositories.repo_description_lines_max %}
+{% else %}
+  {% assign max_lines = 2 %}
+{% endif %}
+
+{% capture unique_id %}repo-card-{{ include.repository | replace: '/', '-' | replace: '.', '-' }}-{{ forloop.index }}{% endcapture %}
+
+<div class="repo p-2 col-12 col-md-6 d-flex" id="{{ unique_id }}">
+  <div class="card p-3 w-100 d-flex flex-column justify-content-between" style="border: 1px solid var(--global-divider-color); background-color: var(--global-card-bg); min-height: 180px;">
+    <div class="card-body text-left p-0" style="text-align: left;">
+      <h5 class="card-title text-break" style="word-break: break-word;">
+        <a href="https://github.com/{{ include.repository }}" target="_blank" class="text-decoration-none" style="color: var(--global-theme-color);">
+          <i class="fa-brands fa-github"></i> 
+          {% if show_owner %}
+            {{ include.repository }}
+          {% else %}
+            {{ repo_url[1] }}
+          {% endif %}
+        </a>
+      </h5>
+      <p class="repo-desc card-text text-muted small mt-2" style="display: -webkit-box; -webkit-line-clamp: {{ max_lines }}; -webkit-box-orient: vertical; overflow: hidden; height: 40px;">
+        Loading description...
+      </p>
+    </div>
+    <div class="repo-stats mt-3 small pt-2" style="border-top: 1px solid rgba(0,0,0,0.05);">
+      <span class="mr-3" style="color: var(--global-text-color);"><i class="fa-regular fa-star"></i> <span class="stars-count">0</span> Stars</span>
+      <span style="color: var(--global-text-color);"><i class="fa-solid fa-code-fork"></i> <span class="forks-count">0</span> Forks</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Slight execution offset to navigate GitHub concurrent rate protections
+      setTimeout(function() {
+        const repoContainer = document.getElementById('{{ unique_id }}');
+        if (!repoContainer) return;
+        fetch('https://api.github.com/repos/{{ include.repository }}')
+          .then(response => {
+            if (!response.ok) throw new Error('Throttled');
+            return response.json();
+          })
+          .then(data => {
+            repoContainer.querySelector('.repo-desc').textContent = data.description || 'View this repository directly on GitHub.';
+            repoContainer.querySelector('.stars-count').textContent = data.stargazers_count;
+            repoContainer.querySelector('.forks-count').textContent = data.forks_count;
+          })
+          .catch(err => {
+            repoContainer.querySelector('.repo-desc').textContent = 'View this repository directly on GitHub.';
+          });
+      }, Math.random() * 500); 
+    })();
+  </script>
+</div>
