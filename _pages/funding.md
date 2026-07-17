@@ -4,38 +4,45 @@ title: Funding
 permalink: /funding/
 nav: true
 nav_order: 6
-description: Our research is generously supported by the following funding bodies and organisations. We are grateful for their continued investment in our work.
+description:
 
 # --- YOUR DATA SECTION ---
 current_grants:
-  - title: "Project Title Here"
-    description: "Brief one-line description"
-    funder: "EPSRC"
+  - title: "GenAI Hub Dataset Challenge & Creations Projects"
+    funder: "UKRI EPSRC"
     funder_url: "https://www.ukri.org/councils/epsrc/"
-    grant_no: "EP/XXXXXXX/1"
-    period: "2023–2026"
-    pi: "Prof. Jane Smith"
-  - title: "Another Project Title"
-    description: "Brief one-line description"
-    funder: "European Research Council"
-    funder_url: "https://erc.europa.eu"
-    grant_no: "ERC-XXXXXXX"
-    period: "2022–2027"
-    pi: "Prof. Jane Smith"
+    period: "2026–2027"
+    image: "ukri_epsrc.png"
+  - title: "ICURe Explore"
+    funder: "Innovate UK"
+    funder_url: "https://www.gov.uk/government/organisations/innovate-uk"
+    period: "2026"
+    image: "icure_explore.png"
+  - title: "Distinguished Faculty Award"
+    funder: "Meta"
+    funder_url: "https://research.facebook.com/"
+    period: "2026"
+    image: "meta.png"
 
 past_grants:
-  - title: "Past Project Title"
-    funder: "EPSRC"
-    period: "2019–2022"
-
-funders:
-  - name: "EPSRC"
-    url: "https://www.ukri.org/councils/epsrc/"
-    logo: "epsrc.png"
-  - name: "ERC"
-    url: "https://erc.europa.eu"
-    logo: "erc.png"
+  - title: "Underpinning the Pipeline for AI Skills"
+    funder: "UKRI EPSRC"
+    funder_url: "https://www.ukri.org/councils/epsrc/"
+    period: "2025"
+    image: "ukri_epsrc.png"
+  - title: "Distinguished Faculty Award"
+    funder: "Meta"
+    funder_url: "https://research.facebook.com/"
+    period: "2025"
+    image: "meta.png"
+  - title: "Signal Processing Mentorship Academy (SigMA)"
+    funder: "IEEE SPS"
+    funder_url: "https://signalprocessingsociety.org/professional-development/signal-processing-mentorship-academy-sigma-program"
+    period: "2023–2024"
+    image: "ieee_sps.png"
 ---
+
+The lab's research is supported through competitively awarded grants and awards from government, industry, and professional societies. Our work has received funding from organisations including UK Research and Innovation (UKRI), the Engineering and Physical Sciences Research Council (EPSRC), Innovate UK, Meta, and the IEEE Signal Processing Society. These awards support research and the development of the next generation of AI researchers.
 
 <!-- Current Grants Section -->
 
@@ -43,38 +50,34 @@ funders:
 
 ## Current Grants
 
-<div class="table-responsive">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Funder</th>
-      <th>Grant No.</th>
-      <th>Period</th>
-      <th>PI</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for grant in page.current_grants %}
-    <tr>
-      <td>
-        <strong>{{ grant.title }}</strong>
-        {% if grant.description %}<br><span class="text-muted small">{{ grant.description }}</span>{% endif %}
-      </td>
-      <td>
-        {% if grant.funder_url %}<a href="{{ grant.funder_url }}" target="_blank">{% endif %}
-          {{ grant.funder }}
-        {% if grant.funder_url %}</a>{% endif %}
-      </td>
-      <td>{{ grant.grant_no }}</td>
-      <td>{{ grant.period }}</td>
-      <td>{{ grant.pi }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="d-flex flex-column gap-3 mb-4">
+  {% for grant in page.current_grants %}
+  <div class="card border-0 shadow-sm">
+    <div class="row g-0 align-items-center">
+      <div class="col-3 col-md-2 text-center p-3">
+        {% if grant.image %}
+          <img
+            src="{{ '/assets/img/funders/' | append: grant.image | relative_url }}"
+            alt="{{ grant.funder }}"
+            class="img-fluid mx-auto d-block"
+            style="max-height: 80px;"
+          />
+        {% endif %}
+      </div>
+      <div class="col-9 col-md-10 p-4">
+        <h5>{{ grant.title }}</h5>
+        {% if grant.description %}<p class="text-muted small">{{ grant.description }}</p>{% endif %}
+        <p class="text-muted small mb-0">
+          {% if grant.funder_url %}<a href="{{ grant.funder_url }}" target="_blank">{% endif %}
+            {{ grant.funder }}
+          {% if grant.funder_url %}</a>{% endif %}
+          &nbsp;·&nbsp; {{ grant.period }}
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
-<hr>
 {% endif %}
 
 <!-- Past Grants Section -->
@@ -83,27 +86,33 @@ funders:
 
 ## Past Grants
 
-<div class="table-responsive">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Funder</th>
-      <th>Period</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for grant in page.past_grants %}
-    <tr>
-      <td><strong>{{ grant.title }}</strong></td>
-      <td>{{ grant.funder }}</td>
-      <td>{{ grant.period }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="d-flex flex-column gap-3 mb-4">
+  {% for grant in page.past_grants %}
+  <div class="card border-0 shadow-sm">
+    <div class="row g-0 align-items-center">
+      <div class="col-3 col-md-2 text-center p-3">
+        {% if grant.image %}
+          <img
+            src="{{ '/assets/img/funders/' | append: grant.image | relative_url }}"
+            alt="{{ grant.funder }}"
+            class="img-fluid mx-auto d-block"
+            style="max-height: 80px;"
+          />
+        {% endif %}
+      </div>
+      <div class="col-9 col-md-10 p-4">
+        <h5>{{ grant.title }}</h5>
+        <p class="text-muted small mb-0">
+          {% if grant.funder_url %}<a href="{{ grant.funder_url }}" target="_blank">{% endif %}
+            {{ grant.funder }}
+          {% if grant.funder_url %}</a>{% endif %}
+          &nbsp;·&nbsp; {{ grant.period }}
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
-<hr>
 {% endif %}
 
 <!-- Funder Logos Section -->
@@ -117,7 +126,7 @@ funders:
   <div class="col">
     <a href="{{ funder.url }}" target="_blank">
       <img src="{{ '/assets/img/funders/' | append: funder.logo | relative_url }}"
-           alt="{{ funder.name }}" class="img-fluid" style="max-height: 60px;">
+           alt="{{ funder.name }}" class="img-fluid mx-auto d-block" style="max-height: 60px;">
     </a>
   </div>
   {% endfor %}
