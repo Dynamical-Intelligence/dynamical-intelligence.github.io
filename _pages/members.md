@@ -10,7 +10,7 @@ profiles:
   # and create one content file for each profile inside _pages/members_bios/
   - align: right
     name: Irán Román
-    role: 
+    role:
       - Lead Researcher
       - Lecturer
     university: Queen Mary University of London
@@ -24,7 +24,7 @@ profiles:
   - align: right
     name: Jimena Arruti
     image: members/jimena_arruti.jpg
-    role: 
+    role:
       - Research Assistant
       - MSc Student
     university: Queen Mary University of London

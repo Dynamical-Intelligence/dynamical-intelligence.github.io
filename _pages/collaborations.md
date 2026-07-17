@@ -35,7 +35,9 @@ research_networks:
 ---
 
 {% if page.academic_partners %}
+
 ## Academic Partners
+
 <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
   {% for partner in page.academic_partners %}
   <div class="col">
@@ -56,7 +58,9 @@ research_networks:
 {% endif %}
 
 {% if page.industry_partners %}
+
 ## Industry Partners
+
 <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
   {% for partner in page.industry_partners %}
   <div class="col">
@@ -71,7 +75,9 @@ research_networks:
 {% endif %}
 
 {% if page.research_networks %}
+
 ## Research Networks
+
 <ul class="mb-5">
   {% for network in page.research_networks %}
   <li>

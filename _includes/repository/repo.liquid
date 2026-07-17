@@ -30,11 +30,14 @@
 {% capture unique_id %}repo-card-{{ include.repository | replace: '/', '-' | replace: '.', '-' }}-{{ forloop.index }}{% endcapture %}
 
 <div class="repo p-2 col-12 col-md-6 d-flex" id="{{ unique_id }}">
-  <div class="card p-3 w-100 d-flex flex-column justify-content-between" style="border: 1px solid var(--global-divider-color); background-color: var(--global-card-bg); min-height: 180px;">
+  <div
+    class="card p-3 w-100 d-flex flex-column justify-content-between"
+    style="border: 1px solid var(--global-divider-color); background-color: var(--global-card-bg); min-height: 180px;"
+  >
     <div class="card-body text-left p-0" style="text-align: left;">
       <h5 class="card-title text-break" style="word-break: break-word;">
         <a href="https://github.com/{{ include.repository }}" target="_blank" class="text-decoration-none" style="color: var(--global-theme-color);">
-          <i class="fa-brands fa-github"></i> 
+          <i class="fa-brands fa-github"></i>
           {% if show_owner %}
             {{ include.repository }}
           {% else %}
@@ -42,7 +45,10 @@
           {% endif %}
         </a>
       </h5>
-      <p class="repo-desc card-text text-muted small mt-2" style="display: -webkit-box; -webkit-line-clamp: {{ max_lines }}; -webkit-box-orient: vertical; overflow: hidden; height: 40px;">
+      <p
+        class="repo-desc card-text text-muted small mt-2"
+        style="display: -webkit-box; -webkit-line-clamp: {{ max_lines }}; -webkit-box-orient: vertical; overflow: hidden; height: 40px;"
+      >
         Loading description...
       </p>
     </div>
@@ -53,25 +59,25 @@
   </div>
 
   <script>
-    (function() {
+    (function () {
       // Slight execution offset to navigate GitHub concurrent rate protections
-      setTimeout(function() {
+      setTimeout(function () {
         const repoContainer = document.getElementById('{{ unique_id }}');
         if (!repoContainer) return;
         fetch('https://api.github.com/repos/{{ include.repository }}')
-          .then(response => {
+          .then((response) => {
             if (!response.ok) throw new Error('Throttled');
             return response.json();
           })
-          .then(data => {
+          .then((data) => {
             repoContainer.querySelector('.repo-desc').textContent = data.description || 'View this repository directly on GitHub.';
             repoContainer.querySelector('.stars-count').textContent = data.stargazers_count;
             repoContainer.querySelector('.forks-count').textContent = data.forks_count;
           })
-          .catch(err => {
+          .catch((err) => {
             repoContainer.querySelector('.repo-desc').textContent = 'View this repository directly on GitHub.';
           });
-      }, Math.random() * 500); 
+      }, Math.random() * 500);
     })();
   </script>
 </div>

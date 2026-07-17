@@ -4,18 +4,23 @@ layout: page
 <div class="post">
   <article>
     {% if page.profiles %}
-
       <h2 class="project-title" style="margin-top: 20px;">Current Members</h2>
-      {% assign current_members = page.profiles | where: "active", true %}
+      {% assign current_members = page.profiles | where: 'active', true %}
 
-      {% assign leads_current = current_members | where: "category", "lead" %}
-      {% assign postdocs_current = current_members | where: "category", "postdoc" %}
-      {% assign phd_current = current_members | where: "category", "phd" %}
-      {% assign msc_current = current_members | where: "category", "msc" %}
-      {% assign ug_current = current_members | where: "category", "ug" %}
-      {% assign ra_current = current_members | where: "category", "ra" %}
+      {% assign leads_current = current_members | where: 'category', 'lead' %}
+      {% assign postdocs_current = current_members | where: 'category', 'postdoc' %}
+      {% assign phd_current = current_members | where: 'category', 'phd' %}
+      {% assign msc_current = current_members | where: 'category', 'msc' %}
+      {% assign ug_current = current_members | where: 'category', 'ug' %}
+      {% assign ra_current = current_members | where: 'category', 'ra' %}
 
-      {% assign ordered_current_members = leads_current | concat: postdocs_current | concat: phd_current | concat: msc_current | concat: ug_current | concat: ra_current %}
+      {% assign ordered_current_members = leads_current
+        | concat: postdocs_current
+        | concat: phd_current
+        | concat: msc_current
+        | concat: ug_current
+        | concat: ra_current
+      %}
 
       {% for profile in ordered_current_members %}
         <hr>
@@ -32,19 +37,27 @@ layout: page
           {% endif %}
           {% if profile.website %}
             <div class="more-info" style="width: 100%; text-align: center;">
-              <a href="{{ profile.website }}" target="_blank" rel="noopener" aria-label="Website">
-                <i class="fa-solid fa-globe"></i> Website
-              </a>
+              <a href="{{ profile.website }}" target="_blank" rel="noopener" aria-label="Website"> <i class="fa-solid fa-globe"></i> Website </a>
             </div>
           {% endif %}
         </div>
 
         <div class="clearfix">
-          {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
-          {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
-          {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
-          {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
-          {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+          {% if profile.name %}
+            <h5>{{ profile.name }}</h5>
+          {% endif %}
+          {% if profile.role %}
+            <p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+          {% endif %}
+          {% if profile.university %}
+            <p class="text-muted" style="margin-top: 0;">{{ profile.university | join: ' & ' }}</p>
+          {% endif %}
+          {% if profile.role_secondary %}
+            <p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+          {% endif %}
+          {% if profile.university_secondary %}
+            <p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: ' & ' }}</p>
+          {% endif %}
 
           {% if profile.papers %}
             {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
@@ -65,13 +78,13 @@ layout: page
 
       <h2 class="project-title" style="margin-top: 60px;">Alumni & Ex-Members</h2>
 
-      {% assign ex_members = page.profiles | where: "active", false %}
+      {% assign ex_members = page.profiles | where: 'active', false %}
 
-      {% assign postdocs_alumni = ex_members | where: "category", "postdoc" %}
-      {% assign phd_alumni = ex_members | where: "category", "phd" %}
-      {% assign msc_alumni = ex_members | where: "category", "msc" %}
-      {% assign ug_alumni = ex_members | where: "category", "ug" %}
-      {% assign ra_alumni = ex_members | where: "category", "ra" %}
+      {% assign postdocs_alumni = ex_members | where: 'category', 'postdoc' %}
+      {% assign phd_alumni = ex_members | where: 'category', 'phd' %}
+      {% assign msc_alumni = ex_members | where: 'category', 'msc' %}
+      {% assign ug_alumni = ex_members | where: 'category', 'ug' %}
+      {% assign ra_alumni = ex_members | where: 'category', 'ra' %}
 
       {% if postdocs_alumni.size > 0 %}
         <h3 class="alumni-subtitle" style="margin-top: 40px;">Postdoctoral Researchers</h3>
@@ -79,11 +92,21 @@ layout: page
           {% for profile in postdocs_alumni %}
             <hr>
             <div class="clearfix">
-              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
-              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
-              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
-              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
-              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+              {% if profile.name %}
+                <h5>{{ profile.name }}</h5>
+              {% endif %}
+              {% if profile.role %}
+                <p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university | join: ' & ' }}</p>
+              {% endif %}
+              {% if profile.role_secondary %}
+                <p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university_secondary %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: ' & ' }}</p>
+              {% endif %}
 
               {% if profile.papers %}
                 {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
@@ -103,11 +126,21 @@ layout: page
           {% for profile in phd_alumni %}
             <hr>
             <div class="clearfix">
-              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
-              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
-              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
-              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
-              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+              {% if profile.name %}
+                <h5>{{ profile.name }}</h5>
+              {% endif %}
+              {% if profile.role %}
+                <p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university | join: ' & ' }}</p>
+              {% endif %}
+              {% if profile.role_secondary %}
+                <p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university_secondary %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: ' & ' }}</p>
+              {% endif %}
 
               {% if profile.papers %}
                 {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
@@ -127,11 +160,21 @@ layout: page
           {% for profile in msc_alumni %}
             <hr>
             <div class="clearfix">
-              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
-              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
-              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
-              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
-              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+              {% if profile.name %}
+                <h5>{{ profile.name }}</h5>
+              {% endif %}
+              {% if profile.role %}
+                <p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university | join: ' & ' }}</p>
+              {% endif %}
+              {% if profile.role_secondary %}
+                <p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university_secondary %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: ' & ' }}</p>
+              {% endif %}
 
               {% if profile.papers %}
                 {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
@@ -151,11 +194,21 @@ layout: page
           {% for profile in ug_alumni %}
             <hr>
             <div class="clearfix">
-              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
-              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
-              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
-              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
-              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+              {% if profile.name %}
+                <h5>{{ profile.name }}</h5>
+              {% endif %}
+              {% if profile.role %}
+                <p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university | join: ' & ' }}</p>
+              {% endif %}
+              {% if profile.role_secondary %}
+                <p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university_secondary %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: ' & ' }}</p>
+              {% endif %}
 
               {% if profile.papers %}
                 {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
@@ -175,11 +228,21 @@ layout: page
           {% for profile in ra_alumni %}
             <hr>
             <div class="clearfix">
-              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
-              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
-              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
-              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
-              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+              {% if profile.name %}
+                <h5>{{ profile.name }}</h5>
+              {% endif %}
+              {% if profile.role %}
+                <p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university | join: ' & ' }}</p>
+              {% endif %}
+              {% if profile.role_secondary %}
+                <p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university_secondary %}
+                <p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: ' & ' }}</p>
+              {% endif %}
 
               {% if profile.papers %}
                 {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
@@ -192,7 +255,6 @@ layout: page
           {% endfor %}
         </div>
       {% endif %}
-
     {% endif %}
   </article>
 </div>

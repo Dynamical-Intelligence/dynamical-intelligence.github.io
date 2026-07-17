@@ -38,7 +38,9 @@ funders:
 ---
 
 <!-- Current Grants Section -->
+
 {% if page.current_grants %}
+
 ## Current Grants
 
 <div class="table-responsive">
@@ -76,7 +78,9 @@ funders:
 {% endif %}
 
 <!-- Past Grants Section -->
+
 {% if page.past_grants %}
+
 ## Past Grants
 
 <div class="table-responsive">
@@ -103,7 +107,9 @@ funders:
 {% endif %}
 
 <!-- Funder Logos Section -->
+
 {% if page.funders %}
+
 ## Funders
 
 <div class="row row-cols-2 row-cols-md-4 g-4 align-items-center text-center mt-2">

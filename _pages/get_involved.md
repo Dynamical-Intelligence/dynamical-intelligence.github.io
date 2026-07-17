@@ -29,11 +29,14 @@ contact_info:
 ---
 
 <!-- Open Positions Section -->
+
 ## Open Positions
 
 ### PhD Studentships
+
 {% if page.phd_positions and page.phd_positions.size > 0 %}
-  {% for position in page.phd_positions %}
+{% for position in page.phd_positions %}
+
   <div class="card border-0 shadow-sm p-4 mb-4">
     <h5>PhD Position: {{ position.title }}</h5>
     <p class="text-muted small">📅 Application deadline: <strong>{{ position.deadline }}</strong> &nbsp;·&nbsp; 🏛 Funded by: {{ position.funder }}</p>
@@ -53,8 +56,10 @@ contact_info:
 ---
 
 ### Postdoctoral Positions
+
 {% if page.postdoc_positions and page.postdoc_positions.size > 0 %}
-  {% for position in page.postdoc_positions %}
+{% for position in page.postdoc_positions %}
+
   <div class="card border-0 shadow-sm p-4 mb-4">
     <h5>Postdoc Position: {{ position.title }}</h5>
     <p class="text-muted small">📅 Application deadline: <strong>{{ position.deadline }}</strong></p>
@@ -103,7 +108,7 @@ We aim to respond to all enquiries within two weeks.
 {{ page.contact_info.lab }}  
 {{ page.contact_info.school }}  
 {{ page.contact_info.university }}  
-{{ page.contact_info.address }}  
+{{ page.contact_info.address }}
 
 📧 [{{ page.contact_info.email }}](mailto:{{ page.contact_info.email }})  
 🌐 [{{ page.contact_info.website_display }}]({{ page.contact_info.website_url }})
