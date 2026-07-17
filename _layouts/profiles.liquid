@@ -4,11 +4,20 @@ layout: page
 <div class="post">
   <article>
     {% if page.profiles %}
-      
+
       <h2 class="project-title" style="margin-top: 20px;">Current Members</h2>
       {% assign current_members = page.profiles | where: "active", true %}
-      
-      {% for profile in current_members %}
+
+      {% assign leads_current = current_members | where: "category", "lead" %}
+      {% assign postdocs_current = current_members | where: "category", "postdoc" %}
+      {% assign phd_current = current_members | where: "category", "phd" %}
+      {% assign msc_current = current_members | where: "category", "msc" %}
+      {% assign ug_current = current_members | where: "category", "ug" %}
+      {% assign ra_current = current_members | where: "category", "ra" %}
+
+      {% assign ordered_current_members = leads_current | concat: postdocs_current | concat: phd_current | concat: msc_current | concat: ug_current | concat: ra_current %}
+
+      {% for profile in ordered_current_members %}
         <hr>
         <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
           {% if profile.image %}
@@ -31,9 +40,20 @@ layout: page
         </div>
 
         <div class="clearfix">
-          {% if profile.name %}<h3>{{ profile.name }}</h3>{% endif %}
-          {% if profile.role %}<p class="text-muted" style="font-style: italic;">{{ profile.role }}</p>{% endif %}
-          
+          {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
+          {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
+          {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
+          {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
+          {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+
+          {% if profile.papers %}
+            {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+            <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+            <div class="publications" style="margin-top: 0;">
+              {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+            </div>
+          {% endif %}
+
           {% if profile.content %}
             {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
             {{ profile_content | markdownify }}
@@ -44,40 +64,134 @@ layout: page
       {% endfor %}
 
       <h2 class="project-title" style="margin-top: 60px;">Alumni & Ex-Members</h2>
-      <div class="alumni-section">
-        {% for profile in page.profiles %}
-          {% if profile.active != true %}
-            <hr>
-            <div class="profile alumni float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
-              {% if profile.image %}
-                {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-                {% if profile.image_circular %}
-                  {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-                {% else %}
-                  {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-                {% endif %}
-                {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
-                {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
-              {% endif %}
-              {% if profile.more_info %}
-                <div class="more-info">{{ profile.more_info }}</div>
-              {% endif %}
-            </div>
 
+      {% assign ex_members = page.profiles | where: "active", false %}
+
+      {% assign postdocs_alumni = ex_members | where: "category", "postdoc" %}
+      {% assign phd_alumni = ex_members | where: "category", "phd" %}
+      {% assign msc_alumni = ex_members | where: "category", "msc" %}
+      {% assign ug_alumni = ex_members | where: "category", "ug" %}
+      {% assign ra_alumni = ex_members | where: "category", "ra" %}
+
+      {% if postdocs_alumni.size > 0 %}
+        <h3 class="alumni-subtitle" style="margin-top: 40px;">Postdoctoral Researchers</h3>
+        <div class="alumni-section">
+          {% for profile in postdocs_alumni %}
+            <hr>
             <div class="clearfix">
-              {% if profile.name %}<h3>{{ profile.name }}</h3>{% endif %}
-              {% if profile.role %}<p class="text-muted" style="font-style: italic;">{{ profile.role }}</p>{% endif %}
-              
-              {% if profile.content %}
-                {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-                {{ profile_content | markdownify }}
-              {% else %}
-                {{ content }}
+              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
+              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
+              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
+              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
+              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+
+              {% if profile.papers %}
+                {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+                <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+                <div class="publications" style="margin-top: 0;">
+                  {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+                </div>
               {% endif %}
             </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if phd_alumni.size > 0 %}
+        <h3 class="alumni-subtitle" style="margin-top: 40px;">PhD Students</h3>
+        <div class="alumni-section">
+          {% for profile in phd_alumni %}
+            <hr>
+            <div class="clearfix">
+              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
+              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
+              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
+              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
+              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+
+              {% if profile.papers %}
+                {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+                <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+                <div class="publications" style="margin-top: 0;">
+                  {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if msc_alumni.size > 0 %}
+        <h3 class="alumni-subtitle" style="margin-top: 40px;">MSc Students</h3>
+        <div class="alumni-section">
+          {% for profile in msc_alumni %}
+            <hr>
+            <div class="clearfix">
+              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
+              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
+              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
+              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
+              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+
+              {% if profile.papers %}
+                {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+                <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+                <div class="publications" style="margin-top: 0;">
+                  {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if ug_alumni.size > 0 %}
+        <h3 class="alumni-subtitle" style="margin-top: 40px;">UG Students</h3>
+        <div class="alumni-section">
+          {% for profile in ug_alumni %}
+            <hr>
+            <div class="clearfix">
+              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
+              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
+              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
+              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
+              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+
+              {% if profile.papers %}
+                {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+                <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+                <div class="publications" style="margin-top: 0;">
+                  {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if ra_alumni.size > 0 %}
+        <h3 class="alumni-subtitle" style="margin-top: 40px;">Research Assistants</h3>
+        <div class="alumni-section">
+          {% for profile in ra_alumni %}
+            <hr>
+            <div class="clearfix">
+              {% if profile.name %}<h5>{{ profile.name }}</h5>{% endif %}
+              {% if profile.role %}<p class="text-muted" style="font-style: italic; margin-bottom: 0;">{{ profile.role | join: " · " }}</p>{% endif %}
+              {% if profile.university %}<p class="text-muted" style="margin-top: 0;">{{ profile.university | join: " & " }}</p>{% endif %}
+              {% if profile.role_secondary %}<p class="text-muted" style="font-style: italic; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: " · " }}</p>{% endif %}
+              {% if profile.university_secondary %}<p class="text-muted" style="margin-top: 0;">{{ profile.university_secondary | join: " & " }}</p>{% endif %}
+
+              {% if profile.papers %}
+                {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+                <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+                <div class="publications" style="margin-top: 0;">
+                  {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
 
     {% endif %}
   </article>
