@@ -4,6 +4,5 @@ title: "2025 AI Skills Through Music: Interactive Learning for Diverse UK Studen
 description:
 img: assets/img/12.jpg
 importance: 2
-category: past
-related_publications: true
+category: Past
 ---

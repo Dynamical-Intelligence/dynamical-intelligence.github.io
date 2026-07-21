@@ -54,12 +54,12 @@ The lab's research is supported through competitively awarded grants and awards 
   {% for grant in page.current_grants %}
   <div class="card border-0 shadow-sm">
     <div class="row g-0 align-items-center">
-      <div class="col-3 col-md-2 text-center p-3">
+      <div class="col-3 col-md-2 p-3 d-flex align-items-center justify-content-center" style="height: 100px;">
         {% if grant.image %}
           <img
             src="{{ '/assets/img/funders/' | append: grant.image | relative_url }}"
             alt="{{ grant.funder }}"
-            class="img-fluid mx-auto d-block"
+            class="img-fluid"
             style="max-height: 80px;"
           />
         {% endif %}
