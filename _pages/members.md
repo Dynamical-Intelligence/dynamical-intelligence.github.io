@@ -46,7 +46,6 @@ profiles:
 
   - align: right
     name: Nicole Filippeli
-    image: prof_pic.jpg
     role: PhD Student
     university: Queen Mary University of London
     category: phd
@@ -67,7 +66,6 @@ profiles:
 
   - align: right
     name: Ariana Pereira
-    image: prof_pic.jpg
     role: MSc Student
     university: Universitat Pompeu Fabra
     category: msc
@@ -77,8 +75,7 @@ profiles:
 
   - align: right
     name: Andrew Chang
-    image: prof_pic.jpg
-    role: Postdoctoral researcher
+    role: Postdoctoral Researcher
     university: New York University
     category: postdoc
     active: false
@@ -89,7 +86,6 @@ profiles:
 
   - align: right
     name: Carlos Hernandez Oliván
-    image: prof_pic.jpg
     role: PhD Student
     university: New York University
     category: phd
@@ -99,7 +95,6 @@ profiles:
 
   - align: right
     name: Brandon Carone
-    image: prof_pic.jpg
     role: PhD Student
     university: New York University
     category: phd
@@ -113,7 +108,6 @@ profiles:
 
   - align: right
     name: Mariia Zimokha
-    image: prof_pic.jpg
     role: MSc Student
     university: Queen Mary University of London
     category: msc
@@ -125,7 +119,6 @@ profiles:
 
   - align: right
     name: Angeline Wang
-    image: prof_pic.jpg
     role: MSc Student
     university: Queen Mary University of London
     category: msc
@@ -137,7 +130,6 @@ profiles:
 
   - align: right
     name: Isabel Urrego
-    image: prof_pic.jpg
     role: MSc Student
     university: Queen Mary University of London
     category: msc
@@ -149,7 +141,6 @@ profiles:
 
   - align: right
     name: Adrian S. Roman
-    image: prof_pic.jpg
     role: MSc Student
     university: University of Southern California
     category: msc
@@ -162,7 +153,6 @@ profiles:
 
   - align: right
     name: Xi Peng
-    image: prof_pic.jpg
     role: MSc Student
     university: New York University
     category: msc
@@ -174,7 +164,6 @@ profiles:
 
   - align: right
     name: Saksham Kushwaha
-    image: prof_pic.jpg
     role: MSc Student
     university: New York University
     category: msc
@@ -184,7 +173,6 @@ profiles:
 
   - align: right
     name: Zorka Bozilovic
-    image: prof_pic.jpg
     role: UG Student
     university: Queen Mary University of London
     category: ug
@@ -196,7 +184,6 @@ profiles:
 
   - align: right
     name: Oliverio Bombicci Pontelli
-    image: prof_pic.jpg
     role: UG Student
     university: Queen Mary University of London
     category: ug
@@ -208,7 +195,6 @@ profiles:
 
   - align: right
     name: Huw Cheston
-    image: prof_pic.jpg
     role: Research Assistant
     university: Queen Mary University of London
     role_secondary: PhD Student
