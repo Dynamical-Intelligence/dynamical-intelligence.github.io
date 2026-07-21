@@ -35,13 +35,13 @@ profiles:
     website: https://jimearruti.com
 
   - align: right
-    name: Anzi Wang
-    image: prof_pic.jpg
+    name: Lianganzi Wang
+    image: members/lianganzi_wang.png
     role: PhD Student
     university: Queen Mary University of London
     category: phd
     active: true
-    content: members_bios/template.md
+    content: members_bios/lianganzi_wang.md
     image_circular: true # crops the image to make it circular
 
   - align: right
@@ -56,13 +56,14 @@ profiles:
 
   - align: right
     name: Philipp Schmidt
-    image: prof_pic.jpg
+    image: members/philipp_schmidt.jpg
     role: MSc Student
     university: Queen Mary University of London
     category: msc
     active: true
-    content: members_bios/template.md
+    content: members_bios/philipp_schmidt.md
     image_circular: true # crops the image to make it circular
+    website: https://philipp-schmidt.online
 
   - align: right
     name: Ariana Pereira
