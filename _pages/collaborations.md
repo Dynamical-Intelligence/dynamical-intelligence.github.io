@@ -4,7 +4,7 @@ title: Collaborations
 permalink: /collaborations/
 nav: true
 nav_order: 5
-description: We work with a range of academic institutions, industry partners, and research networks. We believe that great research happens through open collaboration.
+
 
 # --- YOUR DATA SECTION ---
 # You can easily add, remove, or reorder partners right here:
