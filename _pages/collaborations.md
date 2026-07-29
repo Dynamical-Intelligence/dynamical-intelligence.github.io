@@ -9,29 +9,21 @@ description: We work with a range of academic institutions, industry partners, a
 # --- YOUR DATA SECTION ---
 # You can easily add, remove, or reorder partners right here:
 academic_partners:
-  - name: "Example University"
-    url: "https://example-university.ac.uk"
-    subtext: "Department of Computer Science"
-    description: "Brief description of the collaboration — joint projects, shared PhD students, etc."
-    contact: "Prof. Example Name"
-  - name: "Another Institution"
-    url: "https://another-institution.edu"
-    subtext: "Music Technology Group"
+  - name: "Ian McFadden"
+    url: "https:/mcfaddenecology.com"
+    subtext: "School of Biological and Behavioural Sciences, Queen Mary University of London"
+    description: "Brief description of the collaboration"
+
+  - name: "Anna Xambó Sedo"
+    url: "https://annaxambo.me/"
+    subtext: "Centre for Digital Music, Queen Mary University of London"
     description: "Brief description of the collaboration."
-    contact: "Dr. Another Name"
 
 industry_partners:
-  - name: "Example Company"
-    url: "https://example-company.com"
-    description: "Brief description of the industry collaboration — internships, sponsored research, joint projects."
+  - name: "Meta"
+    url: "https://www.meta.com/"
+    description: "Brief description of the collaboration."
 
-research_networks:
-  - name: "Network Name"
-    url: "https://example.com"
-    description: "Brief description of the network and our role in it."
-  - name: "Another Network"
-    url: "https://example.com"
-    description: "Brief description."
 ---
 
 {% if page.academic_partners %}
@@ -47,9 +39,6 @@ research_networks:
         <p class="text-muted small mb-2">{{ partner.subtext }}</p>
       {% endif %}
       <p>{{ partner.description }}</p>
-      {% if partner.contact %}
-        <p class="mb-0"><strong>Contact:</strong> {{ partner.contact }}</p>
-      {% endif %}
     </div>
   </div>
   {% endfor %}
@@ -74,19 +63,6 @@ research_networks:
 <hr>
 {% endif %}
 
-{% if page.research_networks %}
-
-## Research Networks
-
-<ul class="mb-5">
-  {% for network in page.research_networks %}
-  <li>
-    <strong><a href="{{ network.url }}" target="_blank">{{ network.name }}</a></strong> — {{ network.description }}
-  </li>
-  {% endfor %}
-</ul>
-<hr>
-{% endif %}
 
 ## Interested in collaborating?
 

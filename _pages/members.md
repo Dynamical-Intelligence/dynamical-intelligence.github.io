@@ -74,6 +74,31 @@ profiles:
     image_circular: true # crops the image to make it circular
 
   - align: right
+    name: Sohyun Im
+    role:
+      - Research Assistant
+    university: Queen Mary University of London
+    category: ra
+    active: true
+    image_circular: true # crops the image to make it circular
+
+  - align: right
+    name: Franco Caspe
+    role: Postdoctoral Researcher
+    university: Queen Mary University of London
+    category: postdoc
+    active: true
+    image_circular: true
+
+  - align: right
+    name: Paula Lauren
+    role: Visiting Researcher
+    university: Lawrence Technological University
+    category: visiting
+    active: true
+    image_circular: true
+
+  - align: right
     name: Andrew Chang
     role: Postdoctoral Researcher
     university: New York University

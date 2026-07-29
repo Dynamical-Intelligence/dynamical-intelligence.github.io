@@ -13,6 +13,7 @@ layout: page
       {% assign msc_current = current_members | where: 'category', 'msc' %}
       {% assign ug_current = current_members | where: 'category', 'ug' %}
       {% assign ra_current = current_members | where: 'category', 'ra' %}
+      {% assign visiting_current = current_members | where: 'category', 'visiting' %}
 
       {% assign ordered_current_members = leads_current
         | concat: postdocs_current
@@ -20,6 +21,7 @@ layout: page
         | concat: msc_current
         | concat: ug_current
         | concat: ra_current
+        | concat: visiting_current
       %}
 
       {% for profile in ordered_current_members %}
@@ -85,6 +87,7 @@ layout: page
       {% assign msc_alumni = ex_members | where: 'category', 'msc' %}
       {% assign ug_alumni = ex_members | where: 'category', 'ug' %}
       {% assign ra_alumni = ex_members | where: 'category', 'ra' %}
+      {% assign visiting_alumni = ex_members | where: 'category', 'visiting' %}
 
       {% if postdocs_alumni.size > 0 %}
         <h3 class="alumni-subtitle" style="margin-top: 40px;">Postdoctoral Researchers</h3>
@@ -226,6 +229,40 @@ layout: page
         <h3 class="alumni-subtitle" style="margin-top: 40px;">Research Assistants</h3>
         <div class="alumni-section">
           {% for profile in ra_alumni %}
+            <hr>
+            <div class="clearfix">
+              {% if profile.name %}
+                <h5>{{ profile.name }}</h5>
+              {% endif %}
+              {% if profile.role %}
+                <p class="text-muted" style="font-style: italic; font-size: 1.1rem; margin-bottom: 0;">{{ profile.role | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university %}
+                <p class="text-muted" style="margin-top: 0; font-size: 1.1rem; font-style: italic;">{{ profile.university | join: ' & ' }}</p>
+              {% endif %}
+              {% if profile.role_secondary %}
+                <p class="text-muted" style="font-style: italic; font-size: 1.1rem; margin-top: 8px; margin-bottom: 0;">{{ profile.role_secondary | join: ' · ' }}</p>
+              {% endif %}
+              {% if profile.university_secondary %}
+                <p class="text-muted" style="margin-top: 0; font-size: 1.1rem; font-style: italic;">{{ profile.university_secondary | join: ' & ' }}</p>
+              {% endif %}
+
+              {% if profile.papers %}
+                {% capture papers_regex %}^({{ profile.papers | join: "|" }})${% endcapture %}
+                <h5 class="text-muted" style="margin-top: 12px; margin-bottom: 4px;">Selected Publications</h5>
+                <div class="publications" style="margin-top: 0;">
+                  {% bibliography --group_by none --query @*[key~={{ papers_regex }}] %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if visiting_alumni.size > 0 %}
+        <h3 class="alumni-subtitle" style="margin-top: 40px;">Visiting Researchers</h3>
+        <div class="alumni-section">
+          {% for profile in visiting_alumni %}
             <hr>
             <div class="clearfix">
               {% if profile.name %}
