@@ -20,8 +20,13 @@ academic_partners:
     description: "Brief description of the collaboration."
 
 industry_partners:
-  - name: "Meta"
+  - name: "Meta Platforms Inc"
     url: "https://www.meta.com/"
+    description: "Brief description of the collaboration."
+
+research_networks:
+  - name: "The AI Hub in Generative Models"
+    url: "https://www.genai.ac.uk/"
     description: "Brief description of the collaboration."
 
 ---
@@ -63,6 +68,22 @@ industry_partners:
 <hr>
 {% endif %}
 
+
+{% if page.research_networks %}
+## Research Networks
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+  {% for partner in page.research_networks %}
+  <div class="col">
+    <div class="card h-100 border-0 shadow-sm p-3">
+      <h5><a href="{{ partner.url }}" target="_blank">{{ partner.name }}</a></h5>
+      <p>{{ partner.description }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<hr>
+{% endif %}
 
 ## Interested in collaborating?
 
