@@ -62,6 +62,7 @@ profiles:
     active: true
     content: members_bios/hegel_pedroza.md
     image_circular: true # crops the image to make it circular
+    webpage: https://hepedroza.com
 
   - align: right
     name: Philipp Schmidt
