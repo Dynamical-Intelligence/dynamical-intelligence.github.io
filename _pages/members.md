@@ -54,6 +54,16 @@ profiles:
     image_circular: true # crops the image to make it circular
 
   - align: right
+    name: Hegel Pedroza
+    image: members/hegel_pedroza.png
+    role: PhD Student
+    university: Universidad Nacional Autónoma de México
+    category: phd
+    active: true
+    content: members_bios/hegel_pedroza.md
+    image_circular: true # crops the image to make it circular
+
+  - align: right
     name: Philipp Schmidt
     image: members/philipp_schmidt.jpg
     role: MSc Student
@@ -75,20 +85,25 @@ profiles:
 
   - align: right
     name: Sohyun Im
-    role:
-      - Research Assistant
+    image: members/sohyun_im.jpeg
+    role: Research Assistant
     university: Queen Mary University of London
     category: ra
     active: true
+    content: members_bios/sohyun_im.md
     image_circular: true # crops the image to make it circular
+    website: https://www.linkedin.com/in/sohyun-im
 
   - align: right
     name: Franco Caspe
+    image: members/franco_caspe.png
     role: Postdoctoral Researcher
     university: Queen Mary University of London
     category: postdoc
     active: true
+    content: members_bios/franco_caspe.md
     image_circular: true
+    website: https://fcaspe.github.io
 
   - align: right
     name: Paula Lauren

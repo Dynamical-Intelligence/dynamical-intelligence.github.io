@@ -23,7 +23,7 @@ nav_order: 1
 
 <img src="/assets/img/lab_photo.jpg" alt="Lab banner" style="width: 100%; height: auto; margin-bottom: 1rem;">
 
-The Dynamical Intelligence Systems Lab (DISL) at <a href="https://www.qmul.ac.uk">Queen Mary University of London</a>, School of Electronic Engineering and Computer Science (EECS) investigates the principles that enable intelligent systems to perceive, represent, and interact with the world. Our research sits at the intersection of theoretical neuroscience, machine perception, and artificial intelligence, with the goal of understanding both natural and artificial intelligence through shared computational principles.
+The Dynamical Intelligence Systems Lab (DISL) at <a href="https://www.qmul.ac.uk">Queen Mary University of London</a>, <a href="https://www.qmul.ac.uk/eecs/">School of Electronic Engineering and Computer Science (EECS)</a> investigates the principles that enable intelligent systems to perceive, represent, and interact with the world. Our research sits at the intersection of theoretical neuroscience, machine perception, and artificial intelligence, with the goal of understanding both natural and artificial intelligence through shared computational principles.
 
 The central question that motivates our research is: What computational principles allow intelligent systems (biological or artificial) to transform streams of sensory information into internal representations that support perception, prediction, reasoning, and action?
 
