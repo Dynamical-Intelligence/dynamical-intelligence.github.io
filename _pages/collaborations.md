@@ -55,6 +55,8 @@ research_networks:
 {% endif %}
 {% endfor %}
 {% endif %}
+<div style="margin-bottom: 3rem;"></div>
+
 
 {% if page.industry_partners %}
 
@@ -72,6 +74,8 @@ research_networks:
 {% endif %}
 {% endfor %}
 {% endif %}
+<div style="margin-bottom: 3rem;"></div>
+
 
 {% if page.research_networks %}
 
@@ -89,6 +93,7 @@ research_networks:
 {% endif %}
 {% endfor %}
 {% endif %}
+<div style="margin-bottom: 3rem;"></div>
 
 ## Interested in collaborating?
 
