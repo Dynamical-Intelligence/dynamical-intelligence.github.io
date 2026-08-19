@@ -1,0 +1,1 @@
+Currently working on Music Information Retrieval and audio representation learning. My research investigates the geometric structure of learned audio embeddings, specifically examining whether musical attributes like production effects form regular, transportable directions within contrastive latent spaces. 

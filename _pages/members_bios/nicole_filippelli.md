@@ -1,0 +1,5 @@
+Nicole is a PhD student at Queen Mary University of London, working at the intersection of artificial intelligence, ecology, and wildlife conservation. She holds a BSc (Hons) in Biological Sciences from the University of Brighton and an MSc in Wild Animal Biology from the Royal Veterinary College and the Zoological Society of London, where her research focused on applying computer vision to wildlife monitoring.
+
+For her MSc research, Nicole developed and evaluated deep learning approaches to extract animal movement metrics from camera trap imagery and automate components of wildlife density estimation. Her work involved computer vision, animal tracking, and large-scale camera trap data, sparking a broader interest in using AI to understand ecological processes.
+
+Her PhD research, in collaboration with the McFadden Lab in the School of Biological and Behavioural Sciences at Queen Mary, will explore how multimodal AI can be used to detect and map interactions between species across large spatial scales. More broadly, she is interested in combining machine learning with ecological data to better understand biodiversity and support wildlife conservation.

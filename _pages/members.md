@@ -45,13 +45,15 @@ profiles:
     image_circular: true # crops the image to make it circular
 
   - align: right
-    name: Nicole Filippeli
+    name: Nicole Filippelli
+    image: members/nicole_filippelli.JPG
     role: PhD Student
     university: Queen Mary University of London
     category: phd
     active: true
-    content: members_bios/template.md
+    content: members_bios/nicole_filippelli.md
     image_circular: true # crops the image to make it circular
+    website: www.linkedin.com/in/nicole-filippelli-3634b5370
 
   - align: right
     name: Hegel Pedroza
@@ -77,12 +79,14 @@ profiles:
 
   - align: right
     name: Ariana Pereira
+    image: members/ariana_pereira.jpg
     role: MSc Student
     university: Universitat Pompeu Fabra
     category: msc
     active: true
-    content: members_bios/template.md
+    content: members_bios/ariana_pereira.md
     image_circular: true # crops the image to make it circular
+    website: https://pereiraa10.github.io
 
   - align: right
     name: Sohyun Im
@@ -108,11 +112,14 @@ profiles:
 
   - align: right
     name: Paula Lauren
+    image: members/paula_lauren.png
     role: Visiting Researcher
     university: Lawrence Technological University
     category: visiting
     active: true
+    content: members_bios/paula_lauren.md
     image_circular: true
+    website: https://ltu.edu/faculty/lauren-paula/
 
   - align: right
     name: Andrew Chang
