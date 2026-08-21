@@ -2,7 +2,7 @@
 layout: page
 title: "2025 AI Skills Through Music: Interactive Learning for Diverse UK Students"
 description:
-img: assets/img/projects/cs4fn.jpg
+img: assets/img/projects/cs4fn_cropped.jpg
 importance: 2
 category: Past
 ---
