@@ -4,7 +4,6 @@ title: About Us
 permalink: /
 subtitle:
 
-
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 
@@ -32,6 +31,5 @@ We study how dynamic sensory information is transformed into meaningful internal
 Our work spans topics including computational neuroscience, multimodal perception, representation learning, generative AI, sequential and dynamical systems, interpretable machine learning, and embodied intelligence. We are interested in the fundamental algorithms that underlie perception across biological and artificial systems, and in building AI that is robust, adaptive, and grounded in principled models of intelligence.
 
 Although our research is motivated by broad scientific questions and principles from biophysics, we validate these ideas across diverse domains (including vision, audio, speech, and immersive technologies) using them as testbeds for developing theories and methods of intelligent perception.
-
 
 ---

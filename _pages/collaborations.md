@@ -5,7 +5,6 @@ permalink: /collaborations/
 nav: true
 nav_order: 5
 
-
 # --- YOUR DATA SECTION ---
 # You can easily add, remove, or reorder partners right here:
 academic_partners:
@@ -33,7 +32,6 @@ research_networks:
     description: "Through the AI Hub in Generative Models, the lab collaborates with researchers and industry partners to advance foundation models for multimodal audio AI. Our funded project develops an open, high fidelity multimodal dataset that captures how sound propagates in real three dimensional environments. The dataset supports research in generative audio synthesis, sound source separation, auditory scene understanding, and embodied AI while enabling reproducible benchmarking and open science. This collaboration strengthens connections between academia and industry and accelerates the development of next generation multimodal generative AI technologies."
     lab_members: "Iran R. Roman"
     external_collaborators: "Meta Platforms Ltd., Sony AI"
-
 ---
 
 {% if page.academic_partners %}
@@ -41,6 +39,7 @@ research_networks:
 ## Academic Partners
 
 {% for partner in page.academic_partners %}
+
 <hr>
 <h5><a href="{{ partner.url }}" target="_blank">{{ partner.name }}</a></h5>
 {% if partner.subtext %}
@@ -57,12 +56,12 @@ research_networks:
 {% endif %}
 <div style="margin-bottom: 3rem;"></div>
 
-
 {% if page.industry_partners %}
 
 ## Industry Partners
 
 {% for partner in page.industry_partners %}
+
 <hr>
 <h5><a href="{{ partner.url }}" target="_blank">{{ partner.name }}</a></h5>
 <p>{{ partner.description }}</p>
@@ -76,12 +75,12 @@ research_networks:
 {% endif %}
 <div style="margin-bottom: 3rem;"></div>
 
-
 {% if page.research_networks %}
 
 ## Research Networks
 
 {% for partner in page.research_networks %}
+
 <hr>
 <h5><a href="{{ partner.url }}" target="_blank">{{ partner.name }}</a></h5>
 <p>{{ partner.description }}</p>

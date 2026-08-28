@@ -5,10 +5,9 @@ description:
 img: assets/img/projects/minifusion_cropped.jpg
 importance: 3
 category: Current
-
 ---
 
-Minifusion is an audio plugin for sound-based transformations of musical instruments that allows you to shape the sound of an incoming audio signal in the likeness of other musical instruments, while running in real time and with low latency. 
+Minifusion is an audio plugin for sound-based transformations of musical instruments that allows you to shape the sound of an incoming audio signal in the likeness of other musical instruments, while running in real time and with low latency.
 
 <img src="/assets/img/projects/minifusion.png" alt="Minifusion plugin" style="width: 100%; height: auto; margin-bottom: 1rem;">
 
