@@ -51,7 +51,7 @@ profiles:
     active: true
     content: members_bios/nicole_filippelli.md
     image_circular: true # crops the image to make it circular
-    website: www.linkedin.com/in/nicole-filippelli-3634b5370
+    website: https:/www.linkedin.com/in/nicole-filippelli-3634b5370
 
   - align: right
     name: Hegel Pedroza
