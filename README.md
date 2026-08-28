@@ -2,20 +2,20 @@
 
 This repo is a customized fork of [al-folio](https://github.com/alshedivat/al-folio) for our lab site. Some layouts/includes/sass are customized locally rather than upstream in the `al_folio_core` gem, so `npm run lint:style-contract` is expected to fail here (see below).
 
-| Task | Where |
-| --- | --- |
-| Add/edit a person's bio | `_pages/members_bios/<name>.md` |
-| Add/remove a person from the members page | `_pages/members.md` |
-| Add a news post | `_news/` (new `.md` file, filename becomes the slug) |
-| Add/edit a project page | `_projects/<project>.md` |
-| Add papers to the main Publications page | `_bibliography/papers.bib` |
-| Show a paper on a member's profile card | add the paper to `_bibliography/papers.bib`, then add its bib key under that person's `papers:` list in `_pages/members.md` |
-| Add papers tied to one specific project (kept off the main Publications page) | `_bibliography/<project>.bib`, then reference it from the project page with `{% bibliography --file <project> %}` |
-| Edit the About page / homepage intro | `_pages/about.md` |
-| Edit collaborations / funding / get-involved pages | `_pages/collaborations.md`, `_pages/funding.md`, `_pages/get_involved.md` |
-| Site-wide settings (theme, plugins, nav, scholar/bibliography config) | `_config.yml` |
-| Custom profile card layout (local override, diverges from `al_folio_core`) | `_layouts/profiles.liquid` |
-| Custom includes/sass (local overrides) | `_includes/`, `_sass/` |
+| Task                                                                          | Where                                                                                                                       |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Add/edit a person's bio                                                       | `_pages/members_bios/<name>.md`                                                                                             |
+| Add/remove a person from the members page                                     | `_pages/members.md`                                                                                                         |
+| Add a news post                                                               | `_news/` (new `.md` file, filename becomes the slug)                                                                        |
+| Add/edit a project page                                                       | `_projects/<project>.md`                                                                                                    |
+| Add papers to the main Publications page                                      | `_bibliography/papers.bib`                                                                                                  |
+| Show a paper on a member's profile card                                       | add the paper to `_bibliography/papers.bib`, then add its bib key under that person's `papers:` list in `_pages/members.md` |
+| Add papers tied to one specific project (kept off the main Publications page) | `_bibliography/<project>.bib`, then reference it from the project page with `{% bibliography --file <project> %}`           |
+| Edit the About page / homepage intro                                          | `_pages/about.md`                                                                                                           |
+| Edit collaborations / funding / get-involved pages                            | `_pages/collaborations.md`, `_pages/funding.md`, `_pages/get_involved.md`                                                   |
+| Site-wide settings (theme, plugins, nav, scholar/bibliography config)         | `_config.yml`                                                                                                               |
+| Custom profile card layout (local override, diverges from `al_folio_core`)    | `_layouts/profiles.liquid`                                                                                                  |
+| Custom includes/sass (local overrides)                                        | `_includes/`, `_sass/`                                                                                                      |
 
 **Note on `lint:style-contract`:** this CI check enforces the upstream al-folio rule that the starter repo shouldn't own `_layouts`/`_includes`/`_sass`. Since we intentionally keep local customizations there, this check fails and that's expected.
 
@@ -28,7 +28,7 @@ npx prettier . --write    # fix them
 
 CI runs `npx prettier . --check` and fails the build if any file isn't formatted, so run `--write` locally first.
 
---------------------------------------------
+---
 
 # al-folio
 
@@ -280,7 +280,7 @@ Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.
 
 <!--ts-->
 
-  - [DISL site guide: where to edit things](#disl-site-guide-where-to-edit-things)
+- [DISL site guide: where to edit things](#disl-site-guide-where-to-edit-things)
 - [al-folio](#al-folio)
   - [User community](#user-community)
   - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
