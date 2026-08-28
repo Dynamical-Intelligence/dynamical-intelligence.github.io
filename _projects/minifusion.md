@@ -5,6 +5,7 @@ description:
 img: assets/img/projects/minifusion_cropped.jpg
 importance: 3
 category: Current
+
 ---
 
 Minifusion is an audio plugin for sound-based transformations of musical instruments that allows you to shape the sound of an incoming audio signal in the likeness of other musical instruments, while running in real time and with low latency. 
@@ -18,3 +19,13 @@ The plugin and neural network design have been in continuous development in coll
 This plugin implements two main features to afford natural control for instrumentalists, stemming from research conducted at the lab: (1) the use of continuous representations with space for ambiguity, which holds potential for meaning-making when playing live, and (2), such representations are learned in low-latency autoencoders that support low latency and jitter, for intimate instrumental control.
 
 It has been presented at different venues such as Sonar 2025, NIME, WASPAA, and ADC25. It has also been covered by online magazines on audio effects, bedroomproducers and kvraudio. Composer Ziyi Tao used it for his string quartet piece “There is an image by Paul Klee,” or, Recursivity and Simultaneity (2025)”, presented at Juilliard School, NYC, and Hochschule für Musik und Darstellende Kunst Frankfurt.
+
+[Learn more on the project's website](https://minifusion.live)
+
+<br>
+
+#### Related Papers
+
+<div class="publications">
+{% bibliography --file minifusion --group_by none %}
+</div>
