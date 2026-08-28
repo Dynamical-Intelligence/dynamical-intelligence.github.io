@@ -280,7 +280,7 @@ Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.
 
 <!--ts-->
 
-- [DISL site guide: where to edit things](#disl-site-guide-where-to-edit-things)
+  - [DISL site guide: where to edit things](#disl-site-guide-where-to-edit-things)
 - [al-folio](#al-folio)
   - [User community](#user-community)
   - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
